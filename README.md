@@ -1,78 +1,120 @@
-# Data Engineering Portfolio — Spark, Databricks & SQL
+# Python, Pandas & SQL Server --- Order Data Analysis
 
-Hands-on data engineering projects covering Apache Spark, PySpark, Databricks, Delta Lake, Python, SQL, ETL pipelines, and dimensional data modeling.
+A hands-on ETL and data analysis project demonstrating how to work with
+a dataset in Python, load data into a relational database, and analyze
+order data using SQL.
 
-This repository showcases practical projects focused on data ingestion, transformation, cleansing, integration, and analytics-ready data preparation.
+The project combines **Python, Pandas, Microsoft SQL Server, SQLAlchemy,
+PyODBC, and T-SQL** in a practical workflow covering data preparation,
+database loading, and analysis.
 
-## Projects
+## Project Overview
 
-### 1. Retail Lakehouse Data Engineering Pipeline
+This project demonstrates an end-to-end data workflow:
 
-**Online & Offline Retail Data Unification**
+1.  **Dataset handling:** Work with the project dataset in a Python
+    notebook using Pandas.
+2.  **Data preparation:** Inspect and prepare tabular data before
+    loading it into a database.
+3.  **Database loading:** Use Python database connectivity tools to load
+    data into Microsoft SQL Server.
+4.  **SQL analysis:** Query order data using T-SQL to explore the
+    dataset and derive useful findings.
 
-**Technologies:** Databricks, Apache Spark, PySpark, Delta Lake, Amazon S3, SQL
+## Architecture and Workflow
 
-A hands-on Lakehouse project that brings together customer, product, and order data from two independent retail systems: an online commerce platform and an offline point-of-sale (POS) system.
-
-The project uses Medallion Architecture to organize data processing into three layers:
-
-- **Bronze — Ingestion:** Ingest source datasets, retain source information, and add ingestion metadata.
-- **Silver — Cleansing and Unification:** Standardize schemas, clean attributes, deduplicate records, and unify online and offline customer and product data.
-- **Gold — Analytics-Ready Modeling:** Build dimensional tables using SCD Type 1 and SCD Type 2 concepts, surrogate keys, and an orders fact table.
-
-**Key concepts**
-- Medallion Architecture and Lakehouse design
-- PySpark DataFrame transformations
-- Schema standardization and data cleansing
-- Deduplication and cross-system entity matching
-- Business keys and surrogate keys
-- Slowly Changing Dimensions (SCD Type 1 and Type 2)
-- Fact and dimension tables
-- Data quality and rejected-record handling
-
-**Project notebooks**
-- [Bronze Layer](Notebooks/bronze%20layer.ipynb)
-- [Silver Layer](Notebooks/silver%20layer.ipynb)
-- [Gold Layer](Notebooks/gold%20layer.ipynb)
-
-### 2. Kaggle to Pandas to SQL Server
-
-**Technologies:** Python, Pandas, SQL Server, SQLAlchemy, PyODBC, SQL
-
-An ETL project demonstrating dataset handling with Python and Pandas, loading data into SQL Server, and analyzing order data using SQL.
-
-**Project files**
-- [Kaggle to Pandas to SQL Server notebook](Python-SQL-Server-Kaggle/Kaggle_to_Pandas_to_SQLServer.ipynb)
-- [Order Analysis SQL](Python-SQL-Server-Kaggle/df_orders_analysis.sql)
-
-### 3. Netflix Data Cleaning and Analysis
-
-**Technologies:** Python, Pandas, SQL Server, SQL
-
-A data preparation and analysis project using the Netflix titles dataset. It covers dataset extraction, data handling, relational database storage, and SQL-based analysis.
-
-**Project files**
-- [Netflix Data Extraction and Analysis notebook](Netflix-Data-Cleaning-ELT/Netflix%20Data%20Extract%20and%20Analysis.ipynb)
-- [Netflix Raw Data SQL](Netflix-Data-Cleaning-ELT/Netflix_Raw_Data.sql)
-- [Netflix Data Cleaning and Analysis SQL](Netflix-Data-Cleaning-ELT/Netflix_Data_Cleaning_Analysis.sql)
-- [Netflix Project README](Netflix-Data-Cleaning-ELT/README.md)
+``` text
+Dataset
+   |
+   v
+Python + Pandas
+   |
+   v
+Data Inspection and Preparation
+   |
+   v
+SQLAlchemy + PyODBC
+   |
+   v
+Microsoft SQL Server
+   |
+   v
+T-SQL Order Analysis
+```
 
 ## Technology Stack
 
-| Category | Technologies and Concepts |
-|---|---|
-| Big Data | Apache Spark, PySpark, Spark DataFrames |
-| Lakehouse | Databricks, Delta Lake, Medallion Architecture |
-| Cloud Storage | Amazon S3 |
-| Programming | Python, SQL |
-| Data Processing | ETL, data cleansing, schema standardization, deduplication |
-| Data Modeling | Dimensional modeling, fact tables, dimension tables, surrogate keys |
-| Historical Tracking | SCD Type 1, SCD Type 2 |
-| Databases | Microsoft SQL Server |
-| Version Control | Git, GitHub |
+  Technology             Purpose
+  ---------------------- -------------------------------------------------
+  Python                 Data handling and workflow orchestration
+  Pandas                 Loading, inspecting, and preparing tabular data
+  Jupyter Notebook       Interactive development and execution
+  Microsoft SQL Server   Relational data storage
+  SQLAlchemy             Python database integration
+  PyODBC                 Connectivity between Python and SQL Server
+  T-SQL                  Querying and analyzing order data
 
-## About
+## Repository Contents
 
-This repository is a practical learning portfolio focused on data engineering concepts and implementation. Each project demonstrates selected techniques in data ingestion, transformation, data quality, database loading, and analytical data modeling.
+  ---------------------------------------------------------------------------
+  File                                    Description
+  --------------------------------------- -----------------------------------
+  `Kaggle_to_Pandas_to_SQLServer.ipynb`   Notebook for working with the
+                                          dataset in Pandas and integrating
+                                          with SQL Server
 
-Implementation details and limitations are documented in the respective project files.
+  `df_orders_analysis.sql`                SQL queries for order data analysis
+
+  `README.md`                             Project overview, workflow, and
+                                          setup guidance
+  ---------------------------------------------------------------------------
+
+## Prerequisites
+
+-   Python
+-   Jupyter Notebook or JupyterLab
+-   Pandas, SQLAlchemy, and PyODBC
+-   Microsoft SQL Server
+-   A compatible Microsoft ODBC Driver for SQL Server
+-   The dataset used by the notebook, obtained from its original or
+    authorized source
+
+## Setup and Execution
+
+1.  **Obtain the dataset.** Download the dataset used by the notebook
+    from its original or authorized source.
+2.  **Prepare Python.** Install the required packages, including Pandas,
+    SQLAlchemy, and PyODBC.
+3.  **Configure SQL Server.** Ensure that a SQL Server instance and
+    target database are available.
+4.  **Review connection settings.** Open
+    `Kaggle_to_Pandas_to_SQLServer.ipynb` and update file paths,
+    server/database details, and authentication settings for your
+    environment.
+5.  **Run the notebook.** Execute the cells in order to inspect and
+    prepare the data and perform the database-loading steps.
+6.  **Run the SQL analysis.** Open `df_orders_analysis.sql` in SQL
+    Server Management Studio (SSMS) or another compatible SQL client,
+    select the correct database, and execute the queries.
+
+> **Configuration note:** Database connection details and local file
+> paths vary by environment. Configure them locally, and do not commit
+> passwords, access tokens, or other credentials to the repository.
+
+## What This Project Demonstrates
+
+-   Working with tabular data using Python and Pandas
+-   Preparing data for relational database loading
+-   Connecting Python applications to SQL Server
+-   Using SQLAlchemy and PyODBC for database connectivity
+-   Writing T-SQL queries to analyze order data
+-   Combining Python-based data preparation with SQL-based analysis
+
+## Notes
+
+-   The dataset path, SQL Server instance, database name, and
+    authentication method depend on your local setup.
+-   Review the notebook and SQL script before execution to confirm the
+    required database objects and execution order.
+-   The dataset may need to be downloaded separately; check the notebook
+    for its expected file path.
