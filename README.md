@@ -10,63 +10,41 @@ database loading, and analysis.
 
 ## Project Overview
 
-This project demonstrates an end-to-end data workflow:
+This project demonstrates an end-to-end data workflow using Python, Pandas, and Microsoft SQL Server to prepare, load, and analyze order data.
 
-1.  **Dataset handling:** Work with the project dataset in a Python
-    notebook using Pandas.
-2.  **Data preparation:** Inspect and prepare tabular data before
-    loading it into a database.
-3.  **Database loading:** Use Python database connectivity tools to load
-    data into Microsoft SQL Server.
-4.  **SQL analysis:** Query order data using T-SQL to explore the
-    dataset and derive useful findings.
+The project covers:
+- **Data Preparation:** Inspecting and preparing tabular data using Pandas.
+- **Database Integration:** Loading prepared data into SQL Server using SQLAlchemy and PyODBC.
+- **SQL Analysis:** Querying order data using T-SQL to derive insights.
 
 ## Architecture and Workflow
 
-``` text
-Dataset
-   |
-   v
-Python + Pandas
-   |
-   v
-Data Inspection and Preparation
-   |
-   v
-SQLAlchemy + PyODBC
-   |
-   v
-Microsoft SQL Server
-   |
-   v
-T-SQL Order Analysis
-```
-
+1. **Dataset:** Obtain the order dataset from the original or an authorized source.
+2. **Data Processing:** Load and inspect the dataset using Python and Pandas.
+3. **Data Preparation:** Clean and prepare the data for database loading.
+4. **Database Connectivity:** Connect Python to SQL Server using SQLAlchemy and PyODBC.
+5. **Data Loading:** Load the prepared data into Microsoft SQL Server.
+6. **SQL Analysis:** Run T-SQL queries to analyze order data and derive insights.
 ## Technology Stack
 
-  Technology             Purpose
-  ---------------------- -------------------------------------------------
-  Python                 Data handling and workflow orchestration
-  Pandas                 Loading, inspecting, and preparing tabular data
-  Jupyter Notebook       Interactive development and execution
-  Microsoft SQL Server   Relational data storage
-  SQLAlchemy             Python database integration
-  PyODBC                 Connectivity between Python and SQL Server
-  T-SQL                  Querying and analyzing order data
+ | Technology | Purpose |
+|---|---|
+| Python | Data handling and workflow orchestration |
+| Pandas | Loading, inspecting, and preparing tabular data |
+| Jupyter Notebook | Interactive development and execution |
+| Microsoft SQL Server | Relational data storage |
+| SQLAlchemy | Python database integration |
+| PyODBC | Connectivity between Python and SQL Server |
+| T-SQL | Querying and analyzing order data |
 
 ## Repository Contents
 
   ---------------------------------------------------------------------------
-  File                                    Description
-  --------------------------------------- -----------------------------------
-  `Kaggle_to_Pandas_to_SQLServer.ipynb`   Notebook for working with the
-                                          dataset in Pandas and integrating
-                                          with SQL Server
-
-  `df_orders_analysis.sql`                SQL queries for order data analysis
-
-  `README.md`                             Project overview, workflow, and
-                                          setup guidance
+ | File | Description |
+|---|---|
+| `Kaggle_to_Pandas_to_SQLServer.ipynb` | Notebook for dataset inspection, preparation, and SQL Server integration |
+| `df_orders_analysis.sql` | SQL queries for order data analysis |
+| `README.md` | Project overview, workflow, and setup instructions |
   ---------------------------------------------------------------------------
 
 ## Prerequisites
@@ -97,10 +75,6 @@ T-SQL Order Analysis
     Server Management Studio (SSMS) or another compatible SQL client,
     select the correct database, and execute the queries.
 
-> **Configuration note:** Database connection details and local file
-> paths vary by environment. Configure them locally, and do not commit
-> passwords, access tokens, or other credentials to the repository.
-
 ## What This Project Demonstrates
 
 -   Working with tabular data using Python and Pandas
@@ -109,12 +83,3 @@ T-SQL Order Analysis
 -   Using SQLAlchemy and PyODBC for database connectivity
 -   Writing T-SQL queries to analyze order data
 -   Combining Python-based data preparation with SQL-based analysis
-
-## Notes
-
--   The dataset path, SQL Server instance, database name, and
-    authentication method depend on your local setup.
--   Review the notebook and SQL script before execution to confirm the
-    required database objects and execution order.
--   The dataset may need to be downloaded separately; check the notebook
-    for its expected file path.
